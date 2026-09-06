@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Power Module ISV-PM-01">
+  <rect width="800" height="500" fill="#1a1c16"/>
+  <rect x="24" y="24" width="752" height="452" fill="#cbb892" stroke="#2b2d24" stroke-width="3"/>
+  <text x="48" y="64" font-family="ui-monospace, monospace" font-size="14" fill="#3a3326">ISV-PM-01 / POWER</text>
+  <rect x="120" y="160" width="240" height="140" rx="10" fill="#2a2c26"/>
+  <rect x="140" y="178" width="200" height="18" fill="#c45c26"/>
+  <rect x="140" y="210" width="80" height="24" fill="#6d735c"/>
+  <polygon points="430,300 560,140 690,300" fill="#2f4a3a" stroke="#15170f" stroke-width="4"/>
+  <line x1="480" y1="300" x2="640" y2="300" stroke="#15170f" stroke-width="8"/>
+  <text x="48" y="440" font-family="ui-monospace, monospace" font-size="13" fill="#3a3326">65W PD bank / 40W fold solar / printed bay</text>
+</svg>

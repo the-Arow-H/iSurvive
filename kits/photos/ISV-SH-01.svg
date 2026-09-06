@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Shelter and Light Module ISV-SH-01">
+  <rect width="800" height="500" fill="#1a1c16"/>
+  <rect x="24" y="24" width="752" height="452" fill="#cbb892" stroke="#2b2d24" stroke-width="3"/>
+  <text x="48" y="64" font-family="ui-monospace, monospace" font-size="14" fill="#3a3326">ISV-SH-01 / SHELTER / LIGHT</text>
+  <polygon points="180,340 320,140 460,340" fill="#6d735c" stroke="#15170f" stroke-width="4"/>
+  <circle cx="560" cy="220" r="54" fill="#e6c36a"/>
+  <rect x="548" y="274" width="24" height="70" fill="#2a2c26"/>
+  <rect x="500" y="340" width="120" height="28" rx="6" fill="#7a5a3a"/>
+  <text x="48" y="440" font-family="ui-monospace, monospace" font-size="13" fill="#3a3326">bivy / headlamp / ferro / printed pouch</text>
+</svg>

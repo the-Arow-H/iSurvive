@@ -1,0 +1,104 @@
+:root {
+  --ink: #1a1c16;
+  --paper: #e4d5b3;
+  --panel: #f3e6c8;
+  --rule: #2b2d24;
+  --rust: #b44a1f;
+  --mute: #5c5344;
+  --ok: #2f5d3a;
+}
+
+* { box-sizing: border-box; }
+html, body {
+  margin: 0;
+  background: #12140f;
+  color: var(--ink);
+  font: 16px/1.45 "IBM Plex Sans", "Segoe UI", sans-serif;
+}
+.sheet {
+  max-width: 1080px;
+  margin: 24px auto;
+  padding: 32px 28px 64px;
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.18), transparent 80px),
+    var(--paper);
+  border: 3px solid var(--rule);
+  box-shadow: 12px 12px 0 #000;
+}
+.mast h1 {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin: 0 0 8px;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+}
+.eyebrow, .muted, .rule { color: var(--mute); }
+nav { display: flex; gap: 16px; margin: 16px 0; }
+nav a { color: var(--rust); font-weight: 650; }
+.banner {
+  background: #2f5d3a;
+  color: #f3e6c8;
+  padding: 8px 12px;
+}
+.banner.bad { background: var(--rust); }
+section { margin-top: 40px; }
+h2 { font-family: ui-monospace, monospace; text-transform: uppercase; font-size: 1rem; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 18px;
+}
+.card {
+  background: var(--panel);
+  border: 2px solid var(--rule);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.card img { width: 100%; height: 160px; object-fit: cover; border: 1px solid var(--rule); background: #1a1c16; }
+.sku { font-family: ui-monospace, monospace; font-size: 12px; }
+.price { font-size: 1.35rem; font-weight: 700; }
+.margin.ok { color: var(--ok); }
+.margin.fail { color: var(--rust); }
+button, .buy {
+  background: var(--ink);
+  color: var(--paper);
+  border: 0;
+  padding: 10px 12px;
+  font: inherit;
+  cursor: pointer;
+}
+button:disabled { opacity: 0.5; cursor: not-allowed; }
+.panel {
+  background: var(--panel);
+  border: 2px solid var(--rule);
+  padding: 16px;
+}
+#situation-form {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+}
+label { display: flex; flex-direction: column; gap: 4px; font-size: 14px; }
+input, select, textarea {
+  font: inherit;
+  border: 1px solid var(--rule);
+  background: #fffaf0;
+  padding: 6px;
+}
+fieldset {
+  grid-column: 1 / -1;
+  border: 1px dashed var(--mute);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.check { flex-direction: row; align-items: center; }
+#situation-form button { grid-column: 1 / -1; }
+.briefing h3 { margin-top: 18px; }
+.bom { font-size: 13px; margin: 0; padding-left: 18px; }
+.code { overflow: auto; font-size: 13px; }
+@media (max-width: 640px) {
+  .sheet { margin: 0; border-width: 0 0 3px; }
+}

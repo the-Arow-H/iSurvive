@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="Dual Compute Module ISV-CM-01">
+  <rect width="800" height="500" fill="#1a1c16"/>
+  <rect x="24" y="24" width="752" height="452" fill="#cbb892" stroke="#2b2d24" stroke-width="3"/>
+  <text x="48" y="64" font-family="ui-monospace, monospace" font-size="14" fill="#3a3326">ISV-CM-01 / DUAL COMPUTE</text>
+  <rect x="110" y="140" width="220" height="230" rx="18" fill="#1e2430" stroke="#0d1016" stroke-width="4"/>
+  <rect x="128" y="158" width="184" height="194" rx="8" fill="#8fb3c9"/>
+  <rect x="390" y="170" width="280" height="180" rx="8" fill="#2a3038" stroke="#111" stroke-width="4"/>
+  <circle cx="430" cy="210" r="10" fill="#c45c26"/>
+  <rect x="460" y="200" width="180" height="12" fill="#6d735c"/>
+  <rect x="460" y="224" width="140" height="12" fill="#6d735c"/>
+  <rect x="460" y="248" width="160" height="12" fill="#6d735c"/>
+  <path d="M330 255 H390" stroke="#c45c26" stroke-width="6"/>
+  <text x="48" y="440" font-family="ui-monospace, monospace" font-size="13" fill="#3a3326">phone UI / SBC weights / own the stack</text>
+</svg>

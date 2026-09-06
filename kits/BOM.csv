@@ -1,0 +1,36 @@
+sku,pn,name,qty,unit_landed_cents,process,source
+ISV-FK-01,ISV-CM-01,Dual compute module,1,16300,X,kit-or-self
+ISV-FK-01,ISV-PM-01,Power module,1,12400,X,kit-or-self
+ISV-FK-01,ISV-WT-01,Water module,1,5200,X,kit-or-self
+ISV-FK-01,ISV-SH-01,Shelter and light module,1,5500,X,kit-or-self
+ISV-FK-01,ISV-RP-01,Repair module,1,4800,X,kit-or-self
+ISV-FK-01,ISV-CS-01,Weatherproof field case,1,4500,X,kit-or-self
+ISV-FK-01,ISV-MN-01,Printed field manual,1,800,P,kit-or-self
+ISV-FK-01,KIT-QC,"Kitting, QC, packing labor",1,2500,X,kit-only
+ISV-FK-01,KIT-PKG,Outbound packaging,1,600,X,kit-only
+ISV-FK-01,KIT-FRT,Outbound freight reserve,1,1800,X,kit-only
+ISV-CM-01,RPI5-8G,Raspberry Pi 5 8GB (or equivalent SBC),1,8000,X,kit-or-self
+ISV-CM-01,NVME-128,128GB storage,1,2200,X,kit-or-self
+ISV-CM-01,CM-TRAY,Printed compute tray,1,2800,P,kit-or-self
+ISV-CM-01,USBC-HUB,USB-C hub and phone tether,1,1800,X,kit-or-self
+ISV-CM-01,CM-HW,Cooling and fasteners,1,600,X,kit-or-self
+ISV-CM-01,CM-FRT,Inbound freight share,1,900,X,kit-only
+ISV-PM-01,PD-20K,65W PD power bank ~20Ah class,1,4200,X,kit-or-self
+ISV-PM-01,SOL-40W,40W fold solar panel,1,4800,X,kit-or-self
+ISV-PM-01,PM-BAY,Printed power bay,1,1800,P,kit-or-self
+ISV-PM-01,PM-CBL,USB-C / DC cable set,1,900,X,kit-or-self
+ISV-PM-01,PM-FRT,Inbound freight share,1,700,X,kit-only
+ISV-WT-01,HF-FILTER,Hollow-fiber squeeze filter,1,2800,X,kit-or-self
+ISV-WT-01,BTL-1L,1L bottle and adapter,1,900,X,kit-or-self
+ISV-WT-01,WT-MOUNT,Printed filter mount,1,700,P,kit-or-self
+ISV-WT-01,WT-TABS,Backup purification tabs (class),1,400,X,kit-or-self
+ISV-WT-01,WT-FRT,Inbound freight share,1,400,X,kit-only
+ISV-SH-01,BIVY,Emergency bivy,1,1800,X,kit-or-self
+ISV-SH-01,LAMP,Headlamp and spare cells,1,1600,X,kit-or-self
+ISV-SH-01,SH-POUCH,Printed stake and cord pouch,1,800,P,kit-or-self
+ISV-SH-01,FERRO,Ferro rod and tinder tin,1,900,X,kit-or-self
+ISV-SH-01,SH-FRT,Inbound freight share,1,400,X,kit-only
+ISV-RP-01,FASTENERS,M3/M4 fastener assortment,1,1200,X,kit-or-self
+ISV-RP-01,SPARES,Printed spare panels,1,1800,P,kit-or-self
+ISV-RP-01,FIELD-TOOL,"Tape, cordage, mini tools",1,1400,X,kit-or-self
+ISV-RP-01,RP-FRT,Inbound freight share,1,400,X,kit-only
