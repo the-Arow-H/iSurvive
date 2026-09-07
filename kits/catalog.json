@@ -1,0 +1,115 @@
+{
+  "currency": "USD",
+  "margin_floor": 0.3,
+  "price_rule": "price >= landed / 0.70",
+  "notes": "Landed costs are steward estimates (parts + inbound freight + kitting). Update before any live sale. Photos are catalog illustrations until studio shots land.",
+  "kits": [
+    {
+      "sku": "ISV-FK-01",
+      "name": "iSurvive Field Kit",
+      "path": "kit",
+      "summary": "Full field kit: dual compute, power, water, shelter/light, repair, case, and printed manual. Buy the kit or self-source the BOM.",
+      "photo": "kits/photos/ISV-FK-01.svg",
+      "landed_cents": 54400,
+      "price_cents": 79900,
+      "includes_skus": ["ISV-CM-01", "ISV-PM-01", "ISV-WT-01", "ISV-SH-01", "ISV-RP-01"],
+      "bom": [
+        {"pn": "ISV-CM-01", "name": "Dual compute module", "qty": 1, "unit_landed_cents": 16300, "process": "X", "source": "kit-or-self"},
+        {"pn": "ISV-PM-01", "name": "Power module", "qty": 1, "unit_landed_cents": 12400, "process": "X", "source": "kit-or-self"},
+        {"pn": "ISV-WT-01", "name": "Water module", "qty": 1, "unit_landed_cents": 5200, "process": "X", "source": "kit-or-self"},
+        {"pn": "ISV-SH-01", "name": "Shelter and light module", "qty": 1, "unit_landed_cents": 5500, "process": "X", "source": "kit-or-self"},
+        {"pn": "ISV-RP-01", "name": "Repair module", "qty": 1, "unit_landed_cents": 4800, "process": "X", "source": "kit-or-self"},
+        {"pn": "ISV-CS-01", "name": "Weatherproof field case", "qty": 1, "unit_landed_cents": 4500, "process": "X", "source": "kit-or-self"},
+        {"pn": "ISV-MN-01", "name": "Printed field manual", "qty": 1, "unit_landed_cents": 800, "process": "P", "source": "kit-or-self"},
+        {"pn": "KIT-QC", "name": "Kitting, QC, packing labor", "qty": 1, "unit_landed_cents": 2500, "process": "X", "source": "kit-only"},
+        {"pn": "KIT-PKG", "name": "Outbound packaging", "qty": 1, "unit_landed_cents": 600, "process": "X", "source": "kit-only"},
+        {"pn": "KIT-FRT", "name": "Outbound freight reserve", "qty": 1, "unit_landed_cents": 1800, "process": "X", "source": "kit-only"}
+      ]
+    },
+    {
+      "sku": "ISV-CM-01",
+      "name": "Dual Compute Module",
+      "path": "kit",
+      "summary": "Phone + SBC stack: Pi-class board, storage, printed tray, USB-C tether. Local weights live on the SBC; the phone is the field UI.",
+      "photo": "kits/photos/ISV-CM-01.svg",
+      "landed_cents": 16300,
+      "price_cents": 24900,
+      "includes_skus": [],
+      "bom": [
+        {"pn": "RPI5-8G", "name": "Raspberry Pi 5 8GB (or equivalent SBC)", "qty": 1, "unit_landed_cents": 8000, "process": "X", "source": "kit-or-self"},
+        {"pn": "NVME-128", "name": "128GB storage", "qty": 1, "unit_landed_cents": 2200, "process": "X", "source": "kit-or-self"},
+        {"pn": "CM-TRAY", "name": "Printed compute tray", "qty": 1, "unit_landed_cents": 2800, "process": "P", "source": "kit-or-self"},
+        {"pn": "USBC-HUB", "name": "USB-C hub and phone tether", "qty": 1, "unit_landed_cents": 1800, "process": "X", "source": "kit-or-self"},
+        {"pn": "CM-HW", "name": "Cooling and fasteners", "qty": 1, "unit_landed_cents": 600, "process": "X", "source": "kit-or-self"},
+        {"pn": "CM-FRT", "name": "Inbound freight share", "qty": 1, "unit_landed_cents": 900, "process": "X", "source": "kit-only"}
+      ]
+    },
+    {
+      "sku": "ISV-PM-01",
+      "name": "Power Module",
+      "path": "kit",
+      "summary": "65W USB-C PD bank, fold-out solar, printed power bay. Keeps phone and SBC alive without a wall.",
+      "photo": "kits/photos/ISV-PM-01.svg",
+      "landed_cents": 12400,
+      "price_cents": 18900,
+      "includes_skus": [],
+      "bom": [
+        {"pn": "PD-20K", "name": "65W PD power bank ~20Ah class", "qty": 1, "unit_landed_cents": 4200, "process": "X", "source": "kit-or-self"},
+        {"pn": "SOL-40W", "name": "40W fold solar panel", "qty": 1, "unit_landed_cents": 4800, "process": "X", "source": "kit-or-self"},
+        {"pn": "PM-BAY", "name": "Printed power bay", "qty": 1, "unit_landed_cents": 1800, "process": "P", "source": "kit-or-self"},
+        {"pn": "PM-CBL", "name": "USB-C / DC cable set", "qty": 1, "unit_landed_cents": 900, "process": "X", "source": "kit-or-self"},
+        {"pn": "PM-FRT", "name": "Inbound freight share", "qty": 1, "unit_landed_cents": 700, "process": "X", "source": "kit-only"}
+      ]
+    },
+    {
+      "sku": "ISV-WT-01",
+      "name": "Water Module",
+      "path": "kit",
+      "summary": "Hollow-fiber filter, bottle adapter, printed mount. Backup tabs for when the filter cannot be used.",
+      "photo": "kits/photos/ISV-WT-01.svg",
+      "landed_cents": 5200,
+      "price_cents": 7900,
+      "includes_skus": [],
+      "bom": [
+        {"pn": "HF-FILTER", "name": "Hollow-fiber squeeze filter", "qty": 1, "unit_landed_cents": 2800, "process": "X", "source": "kit-or-self"},
+        {"pn": "BTL-1L", "name": "1L bottle and adapter", "qty": 1, "unit_landed_cents": 900, "process": "X", "source": "kit-or-self"},
+        {"pn": "WT-MOUNT", "name": "Printed filter mount", "qty": 1, "unit_landed_cents": 700, "process": "P", "source": "kit-or-self"},
+        {"pn": "WT-TABS", "name": "Backup purification tabs (class)", "qty": 1, "unit_landed_cents": 400, "process": "X", "source": "kit-or-self"},
+        {"pn": "WT-FRT", "name": "Inbound freight share", "qty": 1, "unit_landed_cents": 400, "process": "X", "source": "kit-only"}
+      ]
+    },
+    {
+      "sku": "ISV-SH-01",
+      "name": "Shelter and Light Module",
+      "path": "kit",
+      "summary": "Bivy, headlamp, ferro rod, printed stake/cord pouch. Repairable, not disposable.",
+      "photo": "kits/photos/ISV-SH-01.svg",
+      "landed_cents": 5500,
+      "price_cents": 8500,
+      "includes_skus": [],
+      "bom": [
+        {"pn": "BIVY", "name": "Emergency bivy", "qty": 1, "unit_landed_cents": 1800, "process": "X", "source": "kit-or-self"},
+        {"pn": "LAMP", "name": "Headlamp and spare cells", "qty": 1, "unit_landed_cents": 1600, "process": "X", "source": "kit-or-self"},
+        {"pn": "SH-POUCH", "name": "Printed stake and cord pouch", "qty": 1, "unit_landed_cents": 800, "process": "P", "source": "kit-or-self"},
+        {"pn": "FERRO", "name": "Ferro rod and tinder tin", "qty": 1, "unit_landed_cents": 900, "process": "X", "source": "kit-or-self"},
+        {"pn": "SH-FRT", "name": "Inbound freight share", "qty": 1, "unit_landed_cents": 400, "process": "X", "source": "kit-only"}
+      ]
+    },
+    {
+      "sku": "ISV-RP-01",
+      "name": "Repair Module",
+      "path": "kit",
+      "summary": "Fasteners, printed spare panels, cordage, tape, mini tools. The kit is meant to be opened and fixed.",
+      "photo": "kits/photos/ISV-RP-01.svg",
+      "landed_cents": 4800,
+      "price_cents": 7500,
+      "includes_skus": [],
+      "bom": [
+        {"pn": "FASTENERS", "name": "M3/M4 fastener assortment", "qty": 1, "unit_landed_cents": 1200, "process": "X", "source": "kit-or-self"},
+        {"pn": "SPARES", "name": "Printed spare panels", "qty": 1, "unit_landed_cents": 1800, "process": "P", "source": "kit-or-self"},
+        {"pn": "FIELD-TOOL", "name": "Tape, cordage, mini tools", "qty": 1, "unit_landed_cents": 1400, "process": "X", "source": "kit-or-self"},
+        {"pn": "RP-FRT", "name": "Inbound freight share", "qty": 1, "unit_landed_cents": 400, "process": "X", "source": "kit-only"}
+      ]
+    }
+  ]
+}

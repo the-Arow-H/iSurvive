@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>iSurvive — field kit + local compute</title>
+  <link rel="stylesheet" href="/static/app.css" />
+</head>
+<body>
+  <div class="sheet">
+    <header class="mast">
+      <p class="eyebrow">Apache-2.0 · on-device · [@the_Arow_H]</p>
+      <h1>iSurvive</h1>
+      <p class="lede">Survival knowledge for the problems you face, on device and interactive to your situation.</p>
+      <nav>
+        <a href="#kits">Kits</a>
+        <a href="#operator">Operator</a>
+        <a href="#hub">Hub</a>
+        <a href="#order">Build order</a>
+      </nav>
+      <p id="banner" class="banner" hidden></p>
+    </header>
+
+    <section id="kits">
+      <h2>1. Kit sales</h2>
+      <p class="rule">SKU · landed cost · photo · checkout · <code>price ≥ landed / 0.70</code></p>
+      <p id="kit-notes" class="muted"></p>
+      <div id="kit-grid" class="grid"></div>
+    </section>
+
+    <section id="operator">
+      <h2>Field Kit Operator</h2>
+      <p class="muted">Describe the situation. The hub retrieves from <code>operator/knowledge</code>. Optional local rewrite via Ollama on Jarvis or this machine. Notes are not stored.</p>
+      <form id="situation-form" class="panel">
+        <label>Setting
+          <select name="setting">
+            <option>woodland</option>
+            <option>desert</option>
+            <option>alpine</option>
+            <option>coastal</option>
+            <option>urban</option>
+          </select>
+        </label>
+        <label>Climate
+          <select name="climate">
+            <option>mixed</option>
+            <option>hot</option>
+            <option>cold</option>
+            <option>wet</option>
+          </select>
+        </label>
+        <label>Hours
+          <input name="hours" type="number" min="1" max="720" value="24" />
+        </label>
+        <label>People
+          <input name="people" type="number" min="1" max="12" value="1" />
+        </label>
+        <fieldset>
+          <legend>Problems</legend>
+          <label><input type="checkbox" name="problems" value="water" checked /> water</label>
+          <label><input type="checkbox" name="problems" value="shelter" checked /> shelter</label>
+          <label><input type="checkbox" name="problems" value="power" /> power</label>
+          <label><input type="checkbox" name="problems" value="compute" /> compute</label>
+          <label><input type="checkbox" name="problems" value="repair" /> repair</label>
+          <label><input type="checkbox" name="problems" value="navigation" /> navigation</label>
+        </fieldset>
+        <label>Gear on hand (SKU)
+          <input name="gear" placeholder="ISV-FK-01" />
+        </label>
+        <label>Notes (never committed)
+          <textarea name="notes" rows="2" placeholder="Leave health and identity out."></textarea>
+        </label>
+        <label class="check">
+          <input type="checkbox" name="use_local_model" /> Rewrite with local Ollama if live
+        </label>
+        <button type="submit">Adapt to this situation</button>
+      </form>
+      <article id="briefing" class="panel briefing" hidden></article>
+    </section>
+
+    <section id="hub">
+      <h2>Local hub</h2>
+      <pre id="hub-status" class="panel code"></pre>
+    </section>
+
+    <section id="order">
+      <h2>Build order (do not invert)</h2>
+      <ol>
+        <li>Kit sales — SKU, landed cost, photo, checkout, margin</li>
+        <li>Dual host — public git and Origin; same SHA after every tag</li>
+        <li>Free GrokBot template — Field Kit Operator (Apache-2.0)</li>
+        <li>Build-in-public — steward drafts on X; human hits publish</li>
+      </ol>
+      <p class="muted">Asimov 1 is a pattern (kit or self-source, printed repairable modules, dual compute, own the stack) — not a humanoid promise.</p>
+    </section>
+  </div>
+  <script src="/static/app.js"></script>
+</body>
+</html>
