@@ -40,11 +40,14 @@ function kitCard(kit, checkoutEnabled) {
   const el = document.createElement("article");
   el.className = "card";
   const canBuy = checkoutEnabled && kit.margin_ok && kit.costing_status === "quoted";
-  const buyLabel = !checkoutEnabled
-    ? "Checkout needs STRIPE_SECRET_KEY"
-    : kit.costing_status !== "quoted"
+  let buyLabel = "Checkout";
+  if (kit.costing_status !== "quoted") {
+    buyLabel = checkoutEnabled
       ? "Estimate — no live charge"
-      : "Checkout";
+      : "Estimate — needs STRIPE_SECRET_KEY";
+  } else if (!checkoutEnabled) {
+    buyLabel = "Checkout needs STRIPE_SECRET_KEY";
+  }
   el.innerHTML = `
     <img src="${kit.photo}" alt="${kit.sku}" />
     <div class="sku">${esc(kit.sku)} · ${esc(kit.availability)} · ${esc(kit.costing_status)}</div>
