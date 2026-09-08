@@ -15,6 +15,7 @@
       <nav>
         <a href="#kits">Kits</a>
         <a href="#operator">Operator</a>
+        <a href="#manual">Manual</a>
         <a href="#hub">Hub</a>
         <a href="#order">Build order</a>
       </nav>
@@ -63,10 +64,14 @@
           <label><input type="checkbox" name="problems" value="compute" /> compute</label>
           <label><input type="checkbox" name="problems" value="repair" /> repair</label>
           <label><input type="checkbox" name="problems" value="navigation" /> navigation</label>
+          <label><input type="checkbox" name="problems" value="comms" /> comms</label>
+          <label><input type="checkbox" name="problems" value="food" /> food</label>
+          <label><input type="checkbox" name="problems" value="weather" /> weather</label>
+          <label><input type="checkbox" name="problems" value="emergency" /> emergency</label>
         </fieldset>
-        <label>Gear on hand (SKU)
-          <input name="gear" placeholder="ISV-FK-01" />
-        </label>
+        <fieldset id="gear-box">
+          <legend>Gear on hand (SKU)</legend>
+        </fieldset>
         <label>Notes (never committed)
           <textarea name="notes" rows="2" placeholder="Leave health and identity out."></textarea>
         </label>
@@ -76,6 +81,12 @@
         <button type="submit">Adapt to this situation</button>
       </form>
       <article id="briefing" class="panel briefing" hidden></article>
+    </section>
+
+    <section id="manual">
+      <h2>Community manual</h2>
+      <p class="muted">Same modules the operator retrieves. Situation first, then read. Not medical advice.</p>
+      <div id="manual-list"></div>
     </section>
 
     <section id="hub">

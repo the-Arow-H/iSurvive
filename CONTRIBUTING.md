@@ -1,6 +1,6 @@
 # Contributing
 
-Keep medical and personal data out of this tree. That includes health details, real names tied to a situation, phone numbers, and precise home addresses.
+Issues and PRs welcome. Keep medical and personal data out of this tree. That includes health details, real names tied to a situation, phone numbers, and precise home addresses.
 
 ## Build order
 
@@ -30,7 +30,12 @@ Modules in `operator/knowledge/` use a short frontmatter block (`id`, `title`, `
 
 ## Dual host
 
-Leave Origin as TBD until the second remote URL exists. After that, every tag is pushed to GitHub **and** `origin-host`, then verified with `python -m isurvive verify-host`.
+GitHub remote is `github`. Origin remote is `origin` (`https://origin.cursor.com/unlimitedpracticeguide/iSurvive`). Every tag is pushed to **both**, then `python -m isurvive verify-host`.
+
+```bash
+scripts/push-branch-dual-host.sh
+scripts/push-tag-dual-host.sh vX.Y.Z
+```
 
 ## X
 

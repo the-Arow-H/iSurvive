@@ -6,7 +6,7 @@ Open field-kit + local-compute stack. Build in public on [@the_Arow_H](https://x
 
 **License:** [Apache-2.0](./LICENSE)  
 **GitHub:** https://github.com/the-Arow-H/iSurvive  
-**Origin:** TBD (dual-host — same SHA after every tag)
+**Origin:** https://origin.cursor.com/unlimitedpracticeguide/iSurvive (dual-host — same SHA after every tag)
 
 ## What this is
 
@@ -21,13 +21,15 @@ Asimov 1 is used as a **pattern** (kit *or* self-source, printed repairable modu
 3. **Free GrokBot template** — Field Kit Operator (Apache-2.0)
 4. **Build-in-public** — steward drafts on X; human hits publish
 
+The working list is [`docs/buildout.md`](docs/buildout.md).
+
 ## Status
 
-- Repo standing up 2026-09-06
+- Dual host live: GitHub + Origin (default branch `main`)
+- Kit catalog + margin gate live; costing is **estimate** until quoted
+- Stripe checkout when `STRIPE_SECRET_KEY` is set; webhook at `POST /api/stripe/webhook`
 - Local hub: Acer Desktop\workspace
 - Ollama on Jarvis (smoke model live); Comfy install in progress
-- Kit costing: catalog + margin gate live; Stripe checkout when `STRIPE_SECRET_KEY` is set
-- Origin remote: open (add `origin-host` when the URL exists)
 
 ## Run the local hub
 
@@ -37,50 +39,43 @@ source .venv/bin/activate
 pip install -e ".[dev]"
 cp .env.example .env
 python -m isurvive margin
+python -m isurvive verify-host
 python -m isurvive serve
 ```
 
 Open http://127.0.0.1:8080
 
-- **Kits** — SKU, landed, photo, BOM, margin, checkout
-- **Operator** — situation in → adapted modules out (optional Ollama rewrite)
-- **Hub** — Ollama / Jarvis reachability and dual-host config
-
-Point `OLLAMA_HOST` at Jarvis when the smoke model is the one you want. Leave Comfy off the field kit until that install is actually done.
-
 ## Kit sales
 
-Source of truth: [`kits/catalog.json`](kits/catalog.json). Photos: [`kits/photos/`](kits/photos/). Rule is enforced in CI:
+Source of truth: [`kits/catalog.json`](kits/catalog.json). Worksheet: [`kits/COSTING.md`](kits/COSTING.md). Photos: [`kits/photos/`](kits/photos/).
 
 ```text
 price_cents >= ceil(landed_cents / 0.70)
 ```
 
-Landed must equal the BOM sum. Self-source skips `kit-only` lines (QC, packing, outbound freight) and fabricates `P` (polymer print) / buys `X` (off-the-shelf).
-
-Checkout is Stripe Checkout Sessions. No `payment_method_types`. Do not enable automatic tax until a registration exists.
+Self-source skips `kit-only` lines. Do not take a live card while `costing_status` is `estimate`.
 
 ## Dual host
 
-GitHub is `origin`. Origin (second host) is TBD — add it as `origin-host` and then:
+| Remote | URL |
+| --- | --- |
+| `github` | https://github.com/the-Arow-H/iSurvive |
+| `origin` | https://origin.cursor.com/unlimitedpracticeguide/iSurvive |
 
 ```bash
+scripts/push-branch-dual-host.sh
 scripts/push-tag-dual-host.sh v0.1.0
 python -m isurvive verify-host
 ```
-
-Every tag must resolve to the **same SHA** on both remotes.
 
 ## Field Kit Operator (free GrokBot template)
 
 [`operator/grokbot/FIELD_KIT_OPERATOR.md`](operator/grokbot/FIELD_KIT_OPERATOR.md) — Apache-2.0. Paste into a GrokBot. It drafts; it does not publish.
 
-Knowledge modules live in [`operator/knowledge/`](operator/knowledge/).
-
 ## Build in public
 
-Steward drafts: [`drafts/x/`](drafts/x/). Human hits publish on X. Do not put medical or personal data in drafts.
+Steward drafts: [`drafts/x/`](drafts/x/). Human hits publish on X.
 
 ## Contributing
 
-Issues and PRs welcome once the dual-remote mirror is live. Keep medical / personal data out of this tree. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Issues and PRs welcome. Keep medical / personal data out of this tree. See [CONTRIBUTING.md](CONTRIBUTING.md).

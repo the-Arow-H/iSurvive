@@ -23,9 +23,11 @@ That is a 30% gross-margin floor on landed. It is not a promise about net after 
 | Piece | Where |
 | --- | --- |
 | Catalog | `kits/catalog.json` |
+| Costing worksheet | `kits/COSTING.md` |
 | Photos | `kits/photos/<SKU>.svg` |
 | Costing | `isurvive/costing.py` |
 | Checkout | `isurvive/checkout.py` → `POST /api/checkout` |
+| Webhook | `POST /api/stripe/webhook` |
 
 ## Process codes
 
@@ -34,10 +36,8 @@ That is a 30% gross-margin floor on landed. It is not a promise about net after 
 | `P` | Polymer print (repairable module) |
 | `X` | Off-the-shelf |
 
-`source: kit-only` lines (QC, packing, outbound freight) are not bought on the self-source path.
+Self-source: drop `kit-only` lines (QC, packing, outbound freight). `self_source_cents` is that sum.
 
-## Checkout
+Checkout is Stripe Checkout Sessions. `POST /api/stripe/webhook` handles `checkout.session.completed`. No `payment_method_types`. No `automatic_tax` until a registration is active.
 
-Stripe Checkout Sessions, hosted. Requires `STRIPE_SECRET_KEY`. Shipping address collected for US/CA until more countries are priced. No `payment_method_types` (dynamic methods). No `automatic_tax` until a registration is active.
-
-The Field Kit Operator template refuses to sell a SKU that fails `python -m isurvive margin`.
+A live charge waits on `costing_status: quoted` plus `STRIPE_SECRET_KEY`. Estimates ship in the catalog; they do not take cards by themselves.

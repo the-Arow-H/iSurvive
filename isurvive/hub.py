@@ -1,15 +1,20 @@
 from __future__ import annotations
 
 import os
-from fastapi import FastAPI, HTTPException
+from fastapi import FastAPI, HTTPException, Request
 from fastapi.responses import FileResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel, Field
 
 from isurvive import __version__
 from isurvive.catalog import ROOT, catalog
-from isurvive.checkout import CheckoutError, checkout_enabled, create_checkout_session
-from isurvive.dual_host import remotes, verify_tags
+from isurvive.checkout import (
+    CheckoutError,
+    checkout_enabled,
+    create_checkout_session,
+    parse_webhook,
+)
+from isurvive.dual_host import public_remotes, verify_tags
 from isurvive.ollama_client import rewrite, status as ollama_status
 from isurvive.situation import adapt, load_modules
 
@@ -55,6 +60,8 @@ def create_app() -> FastAPI:
             "currency": cat.currency,
             "price_rule": cat.price_rule,
             "notes": cat.notes,
+            "costing_as_of": cat.costing_as_of,
+            "costing_status": cat.costing_status,
             "checkout_enabled": checkout_enabled(),
             "kits": [kit.public_dict() for kit in cat.kits],
         }
@@ -99,13 +106,14 @@ def create_app() -> FastAPI:
 
     @app.get("/api/hub")
     def hub() -> dict:
-        origin_url = os.environ.get("ORIGIN_REMOTE_URL", "")
+        names = public_remotes()
+        origin_live = any("origin.cursor.com" in url for url in names.values())
         return {
             "ollama": ollama_status(),
             "checkout_enabled": checkout_enabled(),
-            "remotes": remotes(),
-            "origin_configured": bool(origin_url),
-            "dual_host": "open" if not origin_url else "configured",
+            "remotes": names,
+            "origin_configured": origin_live,
+            "dual_host": "configured" if origin_live else "open",
         }
 
     @app.get("/api/dual-host")
@@ -129,6 +137,31 @@ def create_app() -> FastAPI:
         except CheckoutError as exc:
             raise HTTPException(400, str(exc)) from exc
         return session
+
+    @app.post("/api/stripe/webhook")
+    async def stripe_webhook(request: Request) -> dict:
+        payload = await request.body()
+        signature = request.headers.get("stripe-signature", "")
+        try:
+            return parse_webhook(payload, signature)
+        except CheckoutError as exc:
+            raise HTTPException(503, str(exc)) from exc
+        except Exception as exc:  # noqa: BLE001 — Stripe signature errors
+            raise HTTPException(400, "invalid webhook") from exc
+
+    @app.get("/api/drafts")
+    def drafts() -> dict:
+        folder = ROOT / "drafts" / "x"
+        items = []
+        for path in sorted(folder.glob("*.md")):
+            items.append(
+                {
+                    "path": str(path.relative_to(ROOT)).replace("\\", "/"),
+                    "title": path.stem,
+                    "status": "steward draft",
+                }
+            )
+        return {"publish": "human only", "account": "https://x.com/the_Arow_H", "drafts": items}
 
     @app.get("/")
     def index() -> FileResponse:

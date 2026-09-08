@@ -99,6 +99,15 @@ fieldset {
 .briefing h3 { margin-top: 18px; }
 .bom { font-size: 13px; margin: 0; padding-left: 18px; }
 .code { overflow: auto; font-size: 13px; }
+.path-toggle { display: flex; gap: 8px; font-size: 13px; }
+.qty { width: 4.5rem; }
+.print { margin-top: 12px; }
+.manual-mod { margin-top: 16px; }
+@media print {
+  nav, .buy, #situation-form button, .print { display: none; }
+  body { background: #fff; }
+  .sheet { box-shadow: none; border: 0; }
+}
 @media (max-width: 640px) {
   .sheet { margin: 0; border-width: 0 0 3px; }
 }

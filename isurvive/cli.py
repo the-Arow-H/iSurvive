@@ -72,7 +72,7 @@ def main(argv: list[str] | None = None) -> int:
 
     sub.add_parser("margin", help="enforce price >= landed / 0.70")
     sub.add_parser("catalog", help="print public kit catalog JSON")
-    sub.add_parser("verify-host", help="require GitHub and Origin tag SHAs to match")
+    sub.add_parser("verify-host", help="GitHub + Origin remotes; tag SHAs must match")
 
     serve = sub.add_parser("serve", help="run the local hub")
     serve.add_argument("--host", default=None)

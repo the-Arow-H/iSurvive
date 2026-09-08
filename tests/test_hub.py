@@ -16,6 +16,12 @@ def test_health_and_kits():
     assert body["price_rule"].startswith("price >=")
     assert len(body["kits"]) >= 6
     assert body["kits"][0]["sku"].startswith("ISV-")
+    assert "self_source_cents" in body["kits"][0]
+    assert body["costing_status"] == "estimate"
+    drafts = client.get("/api/drafts")
+    assert drafts.status_code == 200
+    assert drafts.json()["publish"] == "human only"
+    assert drafts.json()["drafts"]
     page = client.get("/")
     assert page.status_code == 200
     assert b"iSurvive" in page.content
@@ -58,6 +64,19 @@ def test_checkout_requires_key_and_margin(monkeypatch):
     except CheckoutError as exc:
         assert "STRIPE_SECRET_KEY" in str(exc)
 
+    monkeypatch.setenv("STRIPE_SECRET_KEY", "sk_test_dummy")
+    try:
+        create_checkout_session(
+            kit,
+            quantity=1,
+            success_url="http://x/ok",
+            cancel_url="http://x/no",
+        )
+        raise AssertionError("should refuse estimate")
+    except CheckoutError as exc:
+        assert "quoted" in str(exc)
+    monkeypatch.delenv("STRIPE_SECRET_KEY", raising=False)
+
     client = TestClient(create_app())
     res = client.post("/api/checkout", json={"sku": "ISV-FK-01", "quantity": 1})
     assert res.status_code == 400
@@ -69,3 +88,25 @@ def test_grokbot_template_present():
     text = (ROOT / "operator/grokbot/FIELD_KIT_OPERATOR.md").read_text(encoding="utf-8")
     assert "Never publish to X" in text
     assert "price >= landed / 0.70" in text
+    assert "origin.cursor.com" in text
+
+
+def test_webhook_completed_event():
+    from isurvive.checkout import handle_checkout_event
+
+    out = handle_checkout_event(
+        {
+            "type": "checkout.session.completed",
+            "data": {
+                "object": {
+                    "id": "cs_test",
+                    "payment_status": "paid",
+                    "metadata": {"sku": "ISV-FK-01"},
+                }
+            },
+        }
+    )
+    assert out["handled"] is True
+    assert out["sku"] == "ISV-FK-01"
+    ignored = handle_checkout_event({"type": "ping"})
+    assert ignored["handled"] is False

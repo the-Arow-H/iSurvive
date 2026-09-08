@@ -1,13 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
-# Push an annotated tag to GitHub (`github`) and Origin (`origin`).
-# Same SHA on both remotes is required.
-TAG="${1:-}"
-if [[ -z "$TAG" ]]; then
-  echo "usage: $0 <tag>" >&2
-  exit 2
-fi
-
+# Push the current branch to GitHub and Origin without renaming it.
+BRANCH="$(git rev-parse --abbrev-ref HEAD)"
 github_remote=github
 origin_remote=origin
 if git remote get-url github >/dev/null 2>&1; then
@@ -20,8 +14,6 @@ if git remote get-url origin >/dev/null 2>&1 && git remote get-url origin | grep
 elif git remote get-url origin-host >/dev/null 2>&1; then
   origin_remote=origin-host
 fi
-
-git tag -a "$TAG" -m "iSurvive $TAG"
-git push "$github_remote" "$TAG"
-git push "$origin_remote" "$TAG"
+git push -u "$github_remote" "HEAD:${BRANCH}"
+git push -u "$origin_remote" "HEAD:${BRANCH}"
 python -m isurvive verify-host
