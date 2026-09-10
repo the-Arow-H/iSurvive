@@ -2,7 +2,9 @@
   "currency": "USD",
   "margin_floor": 0.3,
   "price_rule": "price >= landed / 0.70",
-  "notes": "Landed costs are steward estimates (parts + inbound freight + kitting). Update before any live sale. Photos are catalog illustrations until studio shots land.",
+  "costing_as_of": "2026-09-07",
+  "costing_status": "estimate",
+  "notes": "Landed costs are steward estimates (parts + inbound freight + kitting). Update before any live sale. Photos are catalog illustrations until studio shots land. Availability is preorder until costing_status is quoted.",
   "kits": [
     {
       "sku": "ISV-FK-01",

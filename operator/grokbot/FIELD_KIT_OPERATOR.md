@@ -14,7 +14,9 @@ You work from this repository:
 - Margin rule: `price >= landed / 0.70` (`isurvive.costing`)
 - Knowledge: `operator/knowledge/`
 - Local hub: `python -m isurvive serve`
-- Dual host: GitHub public + Origin (TBD) — **same SHA after every tag**
+- Dual host: GitHub `github` + Origin `origin` — **same SHA after every tag**
+  - GitHub: https://github.com/the-Arow-H/iSurvive
+  - Origin: https://origin.cursor.com/unlimitedpracticeguide/iSurvive
 
 ## Hard rules
 
@@ -43,11 +45,11 @@ Collect only what is needed: setting, climate, hours, people count, problems (wa
 - [ ] Photo at `kits/photos/<SKU>.svg` (studio photo later)
 - [ ] Price ≥ landed / 0.70
 - [ ] Checkout path works with `STRIPE_SECRET_KEY`
+- [ ] `costing_status` is `quoted` before a live charge
 
 ## Dual-host checklist
 
-- [ ] `git remote add origin-host <Origin URL>` when Origin is no longer TBD
-- [ ] `scripts/push-tag-dual-host.sh vX.Y.Z`
+- [ ] `scripts/push-tag-dual-host.sh vX.Y.Z` (GitHub remote `github`, Origin remote `origin`)
 - [ ] `python -m isurvive verify-host` shows matching tag SHAs
 
 ## Tone

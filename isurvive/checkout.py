@@ -22,6 +22,10 @@ def checkout_enabled() -> bool:
     return bool(stripe_key())
 
 
+def webhook_secret() -> str:
+    return os.environ.get("STRIPE_WEBHOOK_SECRET", "").strip()
+
+
 def _identifier() -> str:
     suffix = "".join(secrets.choice(string.ascii_lowercase) for _ in range(8))
     return f"isurvive_kit_{suffix}"
@@ -44,6 +48,12 @@ def create_checkout_session(
         raise CheckoutError("quantity must be 1–20")
     if not checkout_enabled():
         raise CheckoutError("STRIPE_SECRET_KEY is not set")
+    allow_estimate = os.environ.get("STRIPE_ALLOW_ESTIMATE", "").strip() in {"1", "true", "yes"}
+    if kit.costing_status != "quoted" and not allow_estimate:
+        raise CheckoutError(
+            f"{kit.sku} costing_status is {kit.costing_status}; refuse live charge until quoted "
+            "(set STRIPE_ALLOW_ESTIMATE=1 only for sandbox)"
+        )
 
     client = stripe.StripeClient(
         stripe_key(),
@@ -79,3 +89,37 @@ def create_checkout_session(
         }
     )
     return {"id": session.id, "url": session.url}
+
+
+def handle_checkout_event(event: dict) -> dict:
+    kind = event.get("type", "")
+    if kind != "checkout.session.completed":
+        return {"handled": False, "type": kind}
+    obj = (event.get("data") or {}).get("object") or {}
+    metadata = obj.get("metadata") or {}
+    sku = metadata.get("sku") or obj.get("client_reference_id") or ""
+    if sku:
+        try:
+            from isurvive.catalog import catalog
+
+            kit = catalog().by_sku(sku)
+            if not evaluate_kit(kit).ok:
+                return {"handled": True, "sku": sku, "warning": "margin fail on completed session"}
+        except KeyError:
+            return {"handled": True, "sku": sku, "warning": "unknown SKU"}
+    return {
+        "handled": True,
+        "sku": sku,
+        "session_id": obj.get("id"),
+        "payment_status": obj.get("payment_status"),
+    }
+
+
+def parse_webhook(payload: bytes, signature: str) -> dict:
+    secret = webhook_secret()
+    if not secret:
+        raise CheckoutError("STRIPE_WEBHOOK_SECRET is not set")
+    event = stripe.Webhook.construct_event(payload, signature, secret)
+    if hasattr(event, "to_dict"):
+        event = event.to_dict()
+    return handle_checkout_event(event)

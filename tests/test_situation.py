@@ -7,7 +7,19 @@ def test_frontmatter_and_modules():
     assert "Hello" in body
     modules = load_modules()
     ids = {m["id"] for m in modules}
-    assert {"water", "shelter", "power-compute", "repair", "navigation", "kit-assembly"} <= ids
+    assert {
+        "water",
+        "shelter",
+        "power-compute",
+        "repair",
+        "navigation",
+        "kit-assembly",
+        "comms",
+        "food",
+        "weather",
+        "signaling",
+        "emergency",
+    } <= ids
 
 
 def test_water_problem_ranks_water_module():
