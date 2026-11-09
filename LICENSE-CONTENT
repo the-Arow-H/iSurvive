@@ -1,0 +1,30 @@
+Creative Commons Attribution-ShareAlike 4.0 International
+
+The North America field-guide content in this repository is licensed under
+CC BY-SA 4.0. That content is:
+
+- content/na/
+- sources/SOURCES.md
+- DISCLAIMER.md
+- the prose generated into the offline guide from those files
+
+Copyright 2026 the-Arow-H
+
+You may share and adapt this content under the terms of the Creative Commons
+Attribution-ShareAlike 4.0 International license:
+
+https://creativecommons.org/licenses/by-sa/4.0/legalcode
+
+Attribution: "iSurvive North America field guide" by the-Arow-H, licensed
+CC BY-SA 4.0. Link the license. If you remix the content, distribute your
+contributions under the same license. Do not imply that the authors or the
+cited agencies endorse your changes.
+
+Code licenses are separate. The pre-existing kit, hub, and operator package
+remains Apache-2.0 (see LICENSE). The offline guide application
+(app/, scripts/build_guide.py, and the guide tests) is MIT (see app/LICENSE).
+
+Cited government works (CDC, USDA, USFS, FEMA, NPS, EPA, Ready.gov, and
+U.S. Army field manuals) are United States government works. Their wording
+is not relicensed by this file. This guide paraphrases them and points at
+the original pages.

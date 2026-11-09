@@ -81,6 +81,27 @@ Knowledge modules live in [`operator/knowledge/`](operator/knowledge/).
 
 Steward drafts: [`drafts/x/`](drafts/x/). Human hits publish on X. Do not put medical or personal data in drafts.
 
+## Offline field guide (North America, v0.1)
+
+The phone and laptop guide is a static app in [`app/`](app/). It is not the Python hub. Content lives in [`content/na/`](content/na/) as Markdown. Rebuild the search index and service worker with:
+
+```bash
+python3 scripts/build_guide.py
+python3 scripts/serve_guide.py 4173
+```
+
+Open http://127.0.0.1:4173 . `serve_guide.py` sends the manifest as `application/manifest+json`. The first load fills the cache. After that the guide is meant to work with the network off. There is no tracker and no account. Total size stays far under 50 MB because v0.1 ships text, not photo packs.
+
+**Not medical advice.** First-aid pages are drafts with `review: pending-clinical` until a licensed clinician finishes a last look. They do not include drug doses. Read [DISCLAIMER.md](DISCLAIMER.md).
+
+Licenses, on purpose:
+
+- Kit, hub, and operator package: Apache-2.0 ([LICENSE](LICENSE)). That grant stays.
+- Guide application (`app/`, `scripts/build_guide.py`, `tests/test_guide.py`): MIT ([app/LICENSE](app/LICENSE)). MiniSearch in `app/vendor/` keeps its own MIT license.
+- Guide prose (`content/na/`, `sources/SOURCES.md`, `DISCLAIMER.md`): CC BY-SA 4.0 ([LICENSE-CONTENT](LICENSE-CONTENT)).
+
+`build/nomad/pack.json` is a content-pack list. `build/zim/` explains a future Kiwix export. Neither vendors GPL code.
+
 ## Contributing
 
-Issues and PRs welcome once the dual-remote mirror is live. Keep medical / personal data out of this tree. See [CONTRIBUTING.md](CONTRIBUTING.md).
+Issues and PRs welcome once the dual-remote mirror is live. Keep personal data out of this tree. First-aid text in `content/na/first-aid/` is the one exception to the old "no treatment pages" line, and only under the rules in [CONTRIBUTING.md](CONTRIBUTING.md).

@@ -1,0 +1,45 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/the-Arow-H/iSurvive/schema/plant.schema.json",
+  "title": "iSurvive NA plant card",
+  "type": "object",
+  "required": ["id", "title", "name", "sci", "module", "biomes", "season", "lookalikes", "sources", "summary"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "name": { "type": "string", "minLength": 1 },
+    "sci": { "type": "string", "minLength": 1 },
+    "usda_symbol": { "type": "string" },
+    "module": { "const": "flora" },
+    "biomes": {
+      "type": "array",
+      "items": {
+        "enum": [
+          "eastern-deciduous",
+          "boreal-taiga",
+          "great-plains",
+          "desert-southwest",
+          "pacific-northwest",
+          "rockies-alpine",
+          "arctic-tundra",
+          "gulf-southeast"
+        ]
+      }
+    },
+    "season": { "type": "string", "minLength": 1 },
+    "lookalikes": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "sources": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "summary": { "type": "string", "minLength": 1 },
+    "review": { "type": "string" },
+    "last_reviewed": { "type": "string" }
+  },
+  "additionalProperties": true
+}
