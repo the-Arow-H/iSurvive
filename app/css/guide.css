@@ -1,0 +1,128 @@
+:root {
+  --ink: #1c241c;
+  --paper: #f3efe4;
+  --paper-2: #e7e1d2;
+  --line: #c9c0ab;
+  --moss: #243c2c;
+  --moss-2: #31543c;
+  --alert: #7a1f1f;
+  --alert-bg: #f6e4dc;
+  --focus: #8a4b12;
+  color-scheme: light;
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, serif;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  line-height: 1.5;
+}
+a { color: var(--moss-2); }
+a:hover { color: var(--focus); }
+.skip {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  background: white;
+  padding: 0.4rem 0.6rem;
+}
+.skip:focus { top: 0.5rem; z-index: 5; }
+.top {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  align-items: end;
+  padding: 0.8rem 1rem 0.4rem;
+  background: var(--moss);
+  color: #f3efe4;
+}
+.top a { color: inherit; text-decoration: none; }
+.top h1 { margin: 0; font-size: 1.7rem; letter-spacing: 0.01em; }
+.eyebrow, .nav-label, .fine, .meta { font-family: "Segoe UI", sans-serif; }
+.eyebrow { margin: 0; letter-spacing: 0.08em; text-transform: uppercase; font-size: 0.72rem; opacity: 0.85; }
+.net {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  font-size: 0.85rem;
+  border: 1px solid rgba(243, 239, 228, 0.4);
+  padding: 0.25rem 0.5rem;
+  border-radius: 999px;
+}
+.net[data-state="offline"] { background: #f6e4dc; color: var(--alert); border-color: transparent; }
+.net[data-state="online"] { background: #dce8dc; color: var(--moss); border-color: transparent; }
+.banner {
+  background: var(--alert-bg);
+  color: var(--alert);
+  padding: 0.7rem 1rem;
+  border-bottom: 2px solid var(--alert);
+  font-family: "Segoe UI", sans-serif;
+}
+.banner a { color: var(--alert); font-weight: 700; }
+.layout {
+  display: grid;
+  grid-template-columns: minmax(16rem, 22rem) 1fr;
+  gap: 0;
+  min-height: calc(100vh - 8rem);
+}
+.side {
+  padding: 1rem;
+  border-right: 1px solid var(--line);
+  background: #ebe6d8;
+}
+.side label, .nav-label { display: block; font-size: 0.78rem; letter-spacing: 0.06em; text-transform: uppercase; margin: 0.8rem 0 0.3rem; }
+.side input, .side select, button.mod {
+  width: 100%;
+  font: inherit;
+  font-size: 1rem;
+  padding: 0.55rem 0.6rem;
+  border: 1px solid var(--line);
+  background: white;
+  color: var(--ink);
+}
+button.mod {
+  text-align: left;
+  margin: 0 0 0.35rem;
+  cursor: pointer;
+  background: transparent;
+}
+button.mod[aria-current="true"], button.mod:hover { background: white; border-color: var(--moss); }
+.hits { margin-top: 0.5rem; }
+.hits a, .cards a {
+  display: block;
+  padding: 0.45rem 0;
+  border-bottom: 1px solid var(--line);
+  text-decoration: none;
+  color: var(--ink);
+}
+.hits a:hover, .cards a:hover { color: var(--focus); }
+.fine { font-size: 0.82rem; color: #3d463d; }
+main { padding: 1rem 1.2rem 3rem; max-width: 46rem; }
+.sheet h2 { font-size: 1.15rem; margin: 1.4rem 0 0.4rem; }
+.sheet h3 { font-size: 1.02rem; }
+.sheet p, .sheet li { font-size: 1.05rem; }
+.meta { font-size: 0.85rem; color: #3d463d; }
+.clinical {
+  border: 2px solid var(--alert);
+  background: white;
+  padding: 0.8rem 1rem;
+  margin: 0 0 1rem;
+}
+.clinical strong { color: var(--alert); }
+.lookalike {
+  background: #f7efe3;
+  border-left: 4px solid var(--focus);
+  padding: 0.2rem 0.8rem 0.6rem;
+}
+.cards { display: grid; gap: 0.2rem; }
+.kicker { font-family: "Segoe UI", sans-serif; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.75rem; color: var(--moss); }
+.mono { font-family: ui-monospace, monospace; }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 1fr; }
+  .side { border-right: 0; border-bottom: 1px solid var(--line); }
+  .top { align-items: start; flex-direction: column; }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#243c2c" />
+  <meta name="description" content="iSurvive North America field guide. Offline on phone or laptop. Not medical advice." />
+  <title>iSurvive — North America field guide</title>
+  <link rel="manifest" href="/manifest.webmanifest" />
+  <link rel="icon" href="/icons/icon-192.png" />
+  <link rel="stylesheet" href="/css/guide.css" />
+</head>
+<body>
+  <a class="skip" href="#main">Skip to content</a>
+  <header class="top">
+    <div class="brand">
+      <p class="eyebrow">North America · v0.1 · offline</p>
+      <h1><a href="#/">iSurvive</a></h1>
+    </div>
+    <p id="net" class="net" data-state="unknown">Checking cache</p>
+  </header>
+  <div class="banner" role="note">
+    <strong>Not medical advice.</strong>
+    This guide is not a clinician. If someone is badly hurt or getting worse, contact local emergency services.
+    First-aid pages are drafts marked <span class="mono">pending-clinical</span>.
+    <a href="#/page/disclaimer">Full disclaimer</a>
+  </div>
+  <div class="layout">
+    <nav class="side" aria-label="Guide">
+      <form id="search-form" role="search">
+        <label for="q">Search</label>
+        <input id="q" name="q" type="search" placeholder="shelter, cattail, boil…" autocomplete="off" />
+      </form>
+      <div id="hits" class="hits" hidden></div>
+      <p class="nav-label">Modules</p>
+      <div id="modules" class="modules"></div>
+      <p class="nav-label">Biome</p>
+      <label class="biome-label" for="biome">Where you are</label>
+      <select id="biome">
+        <option value="">All biomes</option>
+      </select>
+      <p class="fine">Works after the first load with the network off. No trackers. No accounts.</p>
+    </nav>
+    <main id="main" tabindex="-1"></main>
+  </div>
+  <script src="/vendor/minisearch.js"></script>
+  <script src="/js/guide.js"></script>
+</body>
+</html>

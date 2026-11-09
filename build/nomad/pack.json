@@ -1,0 +1,327 @@
+{
+  "name": "isurvive-na",
+  "version": "0.1.0",
+  "title": "iSurvive North America field guide",
+  "license_content": "CC BY-SA 4.0",
+  "license_code": "MIT",
+  "pages": [
+    {
+      "id": "disclaimer",
+      "module": "about",
+      "title": "Disclaimer",
+      "path": "content/na/about/disclaimer.md"
+    },
+    {
+      "id": "arctic-tundra",
+      "module": "biomes",
+      "title": "Arctic tundra",
+      "path": "content/na/biomes/arctic-tundra.md"
+    },
+    {
+      "id": "boreal-taiga",
+      "module": "biomes",
+      "title": "Boreal and taiga",
+      "path": "content/na/biomes/boreal-taiga.md"
+    },
+    {
+      "id": "desert-southwest",
+      "module": "biomes",
+      "title": "Desert Southwest",
+      "path": "content/na/biomes/desert-southwest.md"
+    },
+    {
+      "id": "eastern-deciduous",
+      "module": "biomes",
+      "title": "Eastern deciduous forest",
+      "path": "content/na/biomes/eastern-deciduous.md"
+    },
+    {
+      "id": "great-plains",
+      "module": "biomes",
+      "title": "Great Plains",
+      "path": "content/na/biomes/great-plains.md"
+    },
+    {
+      "id": "gulf-southeast",
+      "module": "biomes",
+      "title": "Gulf and Southeast subtropical",
+      "path": "content/na/biomes/gulf-southeast.md"
+    },
+    {
+      "id": "pacific-northwest",
+      "module": "biomes",
+      "title": "Pacific Northwest temperate rainforest",
+      "path": "content/na/biomes/pacific-northwest.md"
+    },
+    {
+      "id": "rockies-alpine",
+      "module": "biomes",
+      "title": "Rockies alpine",
+      "path": "content/na/biomes/rockies-alpine.md"
+    },
+    {
+      "id": "cooking-and-parasites",
+      "module": "fauna",
+      "title": "Cooking temperatures and parasites",
+      "path": "content/na/fauna/cooking.md"
+    },
+    {
+      "id": "field-dressing",
+      "module": "fauna",
+      "title": "Field dressing",
+      "path": "content/na/fauna/field-dressing.md"
+    },
+    {
+      "id": "fish",
+      "module": "fauna",
+      "title": "Fish",
+      "path": "content/na/fauna/fish.md"
+    },
+    {
+      "id": "insects",
+      "module": "fauna",
+      "title": "Insects",
+      "path": "content/na/fauna/insects.md"
+    },
+    {
+      "id": "small-game",
+      "module": "fauna",
+      "title": "Small game",
+      "path": "content/na/fauna/small-game.md"
+    },
+    {
+      "id": "trapping-legality",
+      "module": "fauna",
+      "title": "Trapping and hunting law",
+      "path": "content/na/fauna/trapping-legality.md"
+    },
+    {
+      "id": "bites-stings",
+      "module": "first-aid",
+      "title": "Bites and stings",
+      "path": "content/na/first-aid/bites-stings.md"
+    },
+    {
+      "id": "bleeding-control",
+      "module": "first-aid",
+      "title": "Bleeding control",
+      "path": "content/na/first-aid/bleeding.md"
+    },
+    {
+      "id": "burns",
+      "module": "first-aid",
+      "title": "Burns",
+      "path": "content/na/first-aid/burns.md"
+    },
+    {
+      "id": "when-to-evacuate",
+      "module": "first-aid",
+      "title": "When to evacuate",
+      "path": "content/na/first-aid/evacuate.md"
+    },
+    {
+      "id": "fractures-splinting",
+      "module": "first-aid",
+      "title": "Fractures and splinting",
+      "path": "content/na/first-aid/fractures.md"
+    },
+    {
+      "id": "heat-illness",
+      "module": "first-aid",
+      "title": "Heat illness",
+      "path": "content/na/first-aid/heat-illness.md"
+    },
+    {
+      "id": "hypothermia",
+      "module": "first-aid",
+      "title": "Hypothermia and frostbite",
+      "path": "content/na/first-aid/hypothermia.md"
+    },
+    {
+      "id": "first-aid-read-this",
+      "module": "first-aid",
+      "title": "Read this before the first-aid pages",
+      "path": "content/na/first-aid/read-this-first.md"
+    },
+    {
+      "id": "amelanchier-alnifolia",
+      "module": "flora",
+      "title": "Saskatoon serviceberry",
+      "path": "content/na/flora/amelanchier-alnifolia.md"
+    },
+    {
+      "id": "asimina-triloba",
+      "module": "flora",
+      "title": "Pawpaw",
+      "path": "content/na/flora/asimina-triloba.md"
+    },
+    {
+      "id": "carya-ovata",
+      "module": "flora",
+      "title": "Shagbark hickory",
+      "path": "content/na/flora/carya-ovata.md"
+    },
+    {
+      "id": "diospyros-virginiana",
+      "module": "flora",
+      "title": "Common persimmon",
+      "path": "content/na/flora/diospyros-virginiana.md"
+    },
+    {
+      "id": "fragaria-virginiana",
+      "module": "flora",
+      "title": "Virginia strawberry",
+      "path": "content/na/flora/fragaria-virginiana.md"
+    },
+    {
+      "id": "juglans-nigra",
+      "module": "flora",
+      "title": "Black walnut",
+      "path": "content/na/flora/juglans-nigra.md"
+    },
+    {
+      "id": "prunus-serotina",
+      "module": "flora",
+      "title": "Black cherry",
+      "path": "content/na/flora/prunus-serotina.md"
+    },
+    {
+      "id": "prunus-virginiana",
+      "module": "flora",
+      "title": "Chokecherry",
+      "path": "content/na/flora/prunus-virginiana.md"
+    },
+    {
+      "id": "quercus-alba",
+      "module": "flora",
+      "title": "White oak",
+      "path": "content/na/flora/quercus-alba.md"
+    },
+    {
+      "id": "rubus-idaeus",
+      "module": "flora",
+      "title": "American red raspberry",
+      "path": "content/na/flora/rubus-idaeus.md"
+    },
+    {
+      "id": "flora-rules",
+      "module": "flora",
+      "title": "Before you eat any wild plant",
+      "path": "content/na/flora/rules.md"
+    },
+    {
+      "id": "sambucus-nigra-canadensis",
+      "module": "flora",
+      "title": "Blue elderberry",
+      "path": "content/na/flora/sambucus-nigra-canadensis.md"
+    },
+    {
+      "id": "taraxacum-officinale",
+      "module": "flora",
+      "title": "Common dandelion",
+      "path": "content/na/flora/taraxacum-officinale.md"
+    },
+    {
+      "id": "typha-latifolia",
+      "module": "flora",
+      "title": "Broadleaf cattail",
+      "path": "content/na/flora/typha-latifolia.md"
+    },
+    {
+      "id": "urtica-dioica",
+      "module": "flora",
+      "title": "Stinging nettle",
+      "path": "content/na/flora/urtica-dioica.md"
+    },
+    {
+      "id": "vaccinium-angustifolium",
+      "module": "flora",
+      "title": "Lowbush blueberry",
+      "path": "content/na/flora/vaccinium-angustifolium.md"
+    },
+    {
+      "id": "debris-hut",
+      "module": "shelter",
+      "title": "Debris hut",
+      "path": "content/na/shelter/debris-hut.md"
+    },
+    {
+      "id": "lean-to",
+      "module": "shelter",
+      "title": "Lean-to",
+      "path": "content/na/shelter/lean-to.md"
+    },
+    {
+      "id": "shelter-priorities",
+      "module": "shelter",
+      "title": "Shelter priorities",
+      "path": "content/na/shelter/priorities.md"
+    },
+    {
+      "id": "shelter-site",
+      "module": "shelter",
+      "title": "Where not to camp",
+      "path": "content/na/shelter/site-selection.md"
+    },
+    {
+      "id": "snow-shelter",
+      "module": "shelter",
+      "title": "Snow trench, snow cave, and a snow mound",
+      "path": "content/na/shelter/snow-shelter.md"
+    },
+    {
+      "id": "tarp-setups",
+      "module": "shelter",
+      "title": "Tarp and poncho setups",
+      "path": "content/na/shelter/tarp-setups.md"
+    },
+    {
+      "id": "boiling",
+      "module": "water",
+      "title": "Boiling",
+      "path": "content/na/water/boiling.md"
+    },
+    {
+      "id": "chemical-disinfection",
+      "module": "water",
+      "title": "Chlorine and iodine",
+      "path": "content/na/water/chemical.md"
+    },
+    {
+      "id": "dew-and-stills",
+      "module": "water",
+      "title": "Dew and a vegetation still",
+      "path": "content/na/water/dew-and-stills.md"
+    },
+    {
+      "id": "water-filters",
+      "module": "water",
+      "title": "Filters",
+      "path": "content/na/water/filters.md"
+    },
+    {
+      "id": "snowmelt",
+      "module": "water",
+      "title": "Melt snow and ice before you drink it",
+      "path": "content/na/water/snowmelt.md"
+    },
+    {
+      "id": "sodis",
+      "module": "water",
+      "title": "Solar disinfection (SODIS)",
+      "path": "content/na/water/sodis.md"
+    },
+    {
+      "id": "water-sourcing",
+      "module": "water",
+      "title": "Finding water without trusting how it looks",
+      "path": "content/na/water/sourcing.md"
+    },
+    {
+      "id": "water-springs",
+      "module": "water",
+      "title": "Springs, seeps, and moving water",
+      "path": "content/na/water/springs.md"
+    }
+  ]
+}
